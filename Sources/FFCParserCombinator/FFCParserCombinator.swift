@@ -9,14 +9,13 @@
 import Foundation
 
 struct Parser<A> {
-    typealias Stream = String.CharacterView
-    let parse: (Stream) -> (A, Stream)?
+    let parse: (String) -> (A, String)?
 }
 
 
 extension Parser {
-    func run(_ x: String) -> (A, Stream)? {
-        return parse(x.characters)
+    func run(_ x: String) -> (A, String)? {
+        return parse(x)
     }
 
     func map<Result>(_ f: @escaping (A) -> Result) -> Parser<Result> {
