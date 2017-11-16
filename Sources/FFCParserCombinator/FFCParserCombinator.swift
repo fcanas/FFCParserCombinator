@@ -8,12 +8,13 @@
 
 import Foundation
 
-struct Parser<A> {
+public struct Parser<A> {
     let parse: (Substring) -> (A, Substring)?
 }
 
 
-extension Parser {
+public extension Parser {
+    
     func run(_ x: Substring) -> (A, Substring)? {
         return parse(x)
     }
@@ -141,23 +142,23 @@ infix operator <*  : ParserPrecedence
 infix operator <|> : ParserConjuctionPrecedence
 infix operator <<&  : ParserGroupPrecendence
 
-func <^><A, B>(f: @escaping (A) -> B, rhs: Parser<A>) -> Parser<B> {
+public func <^><A, B>(f: @escaping (A) -> B, rhs: Parser<A>) -> Parser<B> {
     return rhs.map(f)
 }
 
-func <^!><A, B>(f: @escaping (A) -> B?, rhs: Parser<A>) -> Parser<B> {
+public func <^!><A, B>(f: @escaping (A) -> B?, rhs: Parser<A>) -> Parser<B> {
     return rhs.flatMap(f)
 }
 
-func <^><A, B, R>(f: @escaping (A, B) -> R, rhs: Parser<A>) -> Parser<(B) -> R> {
+public func <^><A, B, R>(f: @escaping (A, B) -> R, rhs: Parser<A>) -> Parser<(B) -> R> {
     return Parser(result: curry(f)) <*> rhs
 }
 
-func <*><A, B>(lhs: Parser<(A) -> B>, rhs: Parser<A>) -> Parser<B> {
+public func <*><A, B>(lhs: Parser<(A) -> B>, rhs: Parser<A>) -> Parser<B> {
     return lhs.followed(by: rhs, combine: { $0($1) })
 }
 
-func <&><A, B>(lhs: Parser<A>, rhs: Parser<B>) -> Parser<(A,B)> {
+public func <&><A, B>(lhs: Parser<A>, rhs: Parser<B>) -> Parser<(A,B)> {
     return lhs.followed(by: rhs, combine: { ($0, $1) })
 }
 
@@ -168,7 +169,7 @@ func <&><A, B>(lhs: Parser<A>, rhs: Parser<B>) -> Parser<(A,B)> {
 ///   - lhs: The first matching parser, the result of the expression
 ///   - rhs: The second matching parser
 /// - Returns: The lhs parser in the case both lhs and rhs match
-func <*<A, B>(lhs: Parser<A>, rhs: Parser<B>) -> Parser<A> {
+public func <*<A, B>(lhs: Parser<A>, rhs: Parser<B>) -> Parser<A> {
     return lhs.followed(by: rhs, combine: { x, _ in x })
 }
 
@@ -179,18 +180,18 @@ func <*<A, B>(lhs: Parser<A>, rhs: Parser<B>) -> Parser<A> {
 ///   - lhs: The first matching parser
 ///   - rhs: The second matching parser, the result of the expression
 /// - Returns: The rhs parser in the case both lhs and rhs match
-func *><A, B>(lhs: Parser<A>, rhs: Parser<B>) -> Parser<B> {
+public func *><A, B>(lhs: Parser<A>, rhs: Parser<B>) -> Parser<B> {
     return lhs.followed(by: rhs, combine: { _, x in x })
 }
 
-func <|><A>(lhs: Parser<A>, rhs: Parser<A>) -> Parser<A> {
+public func <|><A>(lhs: Parser<A>, rhs: Parser<A>) -> Parser<A> {
     return lhs.or(rhs)
 }
 
-func <<&<A, B, C>(lhs: Parser<(A, B)>, rhs: Parser<C>) -> Parser<(A, B, C)> {
+public func <<&<A, B, C>(lhs: Parser<(A, B)>, rhs: Parser<C>) -> Parser<(A, B, C)> {
     return rhs.group(into:lhs)
 }
 
-func <<&<A, B, C, D>(lhs: Parser<(A, B, C)>, rhs: Parser<D>) -> Parser<(A, B, C, D)> {
+public func <<&<A, B, C, D>(lhs: Parser<(A, B, C)>, rhs: Parser<D>) -> Parser<(A, B, C, D)> {
     return rhs.group(into:lhs)
 }
