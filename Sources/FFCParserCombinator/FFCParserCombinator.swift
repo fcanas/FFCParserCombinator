@@ -9,12 +9,12 @@
 import Foundation
 
 struct Parser<A> {
-    let parse: (String) -> (A, String)?
+    let parse: (Substring) -> (A, Substring)?
 }
 
 
 extension Parser {
-    func run(_ x: String) -> (A, String)? {
+    func run(_ x: Substring) -> (A, Substring)? {
         return parse(x)
     }
 
