@@ -35,7 +35,7 @@ public extension Parser {
     }
 
     /// Parses zero or more consecutive elements into an array
-    var many: Parser<[A]> {
+    public var many: Parser<[A]> {
         return Parser<[A]> { stream in
             var result: [A] = []
             var remainder = stream
@@ -48,7 +48,7 @@ public extension Parser {
     }
 
     /// Parses one or more consecutive elements into an array
-    var many1: Parser<[A]> {
+    public var many1: Parser<[A]> {
         return Parser<[A]> { stream in
             var result: [A] = []
             var remainder = stream

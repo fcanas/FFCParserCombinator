@@ -21,28 +21,30 @@ func character( condition: @escaping (Character) -> Bool) -> Parser<Character> {
     }
 }
 
-/** Builds a parser for matching a single character in the provided
-    `CharacterSet`
- - parameter characterSet: A `CharacterSet` of all characters the resulting
-                           `Parser` will match.
- - returns: A `Parser` that will match a single `Character` in `characterSet`
- */
-func character(in characterSet: CharacterSet ) -> Parser<Character> {
-    return character(condition: { characterSet.contains($0.unicodeScalar) } )
+extension CharacterSet {
+    /** Builds a parser for matching a single character in the receiving
+     `CharacterSet`
+     - returns: A `Parser` that will match a single `Character` in `characterSet`
+     */
+    public func parser() -> Parser<Character> {
+        return character(condition: { self.contains($0.unicodeScalar) } )
+    }
 }
 
-/** Builds a parser for matching the provided `String`
- */
-func string(_ string: String) -> Parser<String> {
-    return Parser<String> { stream in
-        var remainder = stream
-        for char in string {
-            guard let (_, newRemainder) = character(condition: { $0 == char }).parse(remainder) else {
-                return nil
+extension String {
+    /** Builds a parser for matching the receiving `String`
+     */
+    public func parser() -> Parser<String> {
+        return Parser<String> { stream in
+            var remainder = stream
+            for char in self {
+                guard let (_, newRemainder) = character(condition: { $0 == char }).parse(remainder) else {
+                    return nil
+                }
+                remainder = newRemainder
             }
-            remainder = newRemainder
+            return (self, remainder)
         }
-        return (string, remainder)
     }
 }
 
