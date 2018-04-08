@@ -6,17 +6,14 @@
 //  Adapted from https://github.com/objcio/s01e13-parsing-techniques
 //
 
-import Foundation
-
 public struct Parser<A> {
     let parse: (Substring) -> (A, Substring)?
 }
 
-
 public extension Parser {
     
-    func run(_ x: Substring) -> (A, Substring)? {
-        return parse(x)
+    func run(_ x: String) -> (A, Substring)? {
+        return parse(x[x.fullRange])
     }
 
     func map<Result>(_ f: @escaping (A) -> Result) -> Parser<Result> {
