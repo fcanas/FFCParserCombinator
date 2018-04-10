@@ -1,5 +1,5 @@
 import XCTest
-@testable import FFCParserCombinator
+import FFCParserCombinator
 
 class FFCParserCombinatorTests: XCTestCase {
 

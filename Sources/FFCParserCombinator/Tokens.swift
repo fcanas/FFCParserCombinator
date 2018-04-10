@@ -14,7 +14,7 @@ import Foundation
                   false).
  - returns: A `Parser` for a single `Character` passing the provided `condition`
 */
-func character( condition: @escaping (Character) -> Bool) -> Parser<Character> {
+public func character( condition: @escaping (Character) -> Bool) -> Parser<Character> {
     return Parser { stream in
         guard let char :Character = stream.first, condition(char) else { return nil }
         return (char, stream.dropFirst())
@@ -61,29 +61,29 @@ extension Character {
     }
 }
 
-struct BasicParser {
+public struct BasicParser {
 
-    static let digit = CharacterSet.decimalDigits.parser()
+    public static let digit = CharacterSet.decimalDigits.parser()
 
-    static let hexDigit = CharacterSet.decimalDigits.union(CharacterSet(charactersIn: "A"..."F")).parser()
+    public static let hexDigit = CharacterSet.decimalDigits.union(CharacterSet(charactersIn: "A"..."F")).parser()
 
     // Fragments
 
-    static let hexPrefix = "0x".parser() <|> "0X".parser()
+    public static let hexPrefix = "0x".parser() <|> "0X".parser()
 
-    static let decimalPoint = ".".parser()
+    public static let decimalPoint = ".".parser()
 
-    static let negation = "-".parser()
+    public static let negation = "-".parser()
 
-    static let quote = "\"".parser()
+    public static let quote = "\"".parser()
 
-    static let x = character { $0 == "x" }
+    public static let x = character { $0 == "x" }
 
-    static let numericString = { String($0) } <^> digit.many1
+    public static let numericString = { String($0) } <^> digit.many1
 
-    static let floatingPointString = numericString.followed(by: decimalPoint, combine: +).followed(by: numericString, combine: +)
+    public static let floatingPointString = numericString.followed(by: decimalPoint, combine: +).followed(by: numericString, combine: +)
 
-    static let int = { characters in UInt(String(characters))! } <^> digit.many1
+    public static let int = { characters in UInt(String(characters))! } <^> digit.many1
 
-    static let newline = character { $0 == "\n" } <|> (character { $0 == "\n" } <* character { $0 == "\r" })
+    public static let newline = character { $0 == "\n" } <|> (character { $0 == "\n" } <* character { $0 == "\r" })
 }
