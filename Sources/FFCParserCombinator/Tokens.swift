@@ -31,10 +31,43 @@ extension CharacterSet {
     }
 }
 
+extension Parser: ExpressibleByStringLiteral where A == String {
+    public typealias StringLiteralType = String
+
+    public init(stringLiteral value: Parser.StringLiteralType) {
+        self = value.parser()
+    }
+}
+
+extension Parser: ExpressibleByExtendedGraphemeClusterLiteral where A == String {
+
+    /// A type that represents an extended grapheme cluster literal.
+    ///
+    /// Valid types for `ExtendedGraphemeClusterLiteralType` are `Character`,
+    /// `String`, and `StaticString`.
+    public typealias ExtendedGraphemeClusterLiteralType = String
+
+    /// Creates an instance initialized to the given value.
+    ///
+    /// - Parameter value: The value of the new instance.
+    public init(extendedGraphemeClusterLiteral value: Parser.ExtendedGraphemeClusterLiteralType) {
+        self = value.parser()
+    }
+}
+
+extension Parser: ExpressibleByUnicodeScalarLiteral where A == String {
+
+    public typealias UnicodeScalarLiteralType = String
+
+    public init(unicodeScalarLiteral value: Parser.UnicodeScalarLiteralType) {
+        self = value.parser()
+    }
+}
+
 extension String {
     /** Builds a parser for matching the receiving `String`
      */
-    public func parser() -> Parser<String> {
+    fileprivate func parser() -> Parser<String> {
         return Parser<String> { stream in
             var remainder = stream
             for char in self {
