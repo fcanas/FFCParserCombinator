@@ -94,6 +94,24 @@ extension Character {
     }
 }
 
+public protocol ParsableType {
+    static var parser: Parser<Self> { get }
+}
+
+extension UInt: ParsableType {
+    public static var parser: Parser<UInt> { get {
+        return { UInt(String($0))! } <^> BasicParser.digit.many1
+        }
+    }
+}
+
+extension Int: ParsableType {
+    public static var parser: Parser<Int> { get {
+        return { characters in Int(String(characters))! } <^> BasicParser.negation.optional.followed(by:BasicParser.numericString, combine: { ($0 ?? "") + $1 } )
+        }
+    }
+}
+
 public struct BasicParser {
 
     public static let digit = CharacterSet.decimalDigits.parser()
@@ -115,8 +133,6 @@ public struct BasicParser {
     public static let numericString = { String($0) } <^> digit.many1
 
     public static let floatingPointString = numericString.followed(by: decimalPoint, combine: +).followed(by: numericString, combine: +)
-
-    public static let int = { characters in UInt(String(characters))! } <^> digit.many1
 
     public static let newline = character { $0 == "\n" } <|> (character { $0 == "\n" } <* character { $0 == "\r" })
 }
