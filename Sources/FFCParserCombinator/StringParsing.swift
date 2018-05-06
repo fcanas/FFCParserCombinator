@@ -127,6 +127,64 @@ extension Int: ParsableType {
     }
 }
 
+extension Double: ParsableType {
+    public static var parser: Parser<Substring, Double> { get {
+
+        let m = { _ in FloatingPointSign.minus } <^> "-"
+        let p = { _ in FloatingPointSign.plus } <^> "+"
+
+        let sign = { $0 ?? FloatingPointSign.plus } <^> (p <|> m).optional
+
+        let floatingPointE = "e" <|> "E"
+
+        let decimalLiteral = UInt.parser
+
+        let decimalFraction = "." *> UInt.parser
+
+        let decimalExponent = { (s,m) in Int(m) * (s == .minus ? -1 : 1) } <^> floatingPointE *> sign <&> UInt.parser
+
+        let doubleParser = sign <&> decimalLiteral <<& decimalFraction.optional <<& decimalExponent.optional
+
+        return { (sign, integerpart, fraction, radix10Exponent) in
+            let s: String
+            switch sign {
+            case .plus:
+                s = "+"
+            case .minus:
+                s = "-"
+            }
+            let frac: String
+            switch fraction {
+            case .none:
+                frac = ""
+            case let .some(f):
+                frac = ".\(f)"
+            }
+            let exp: String
+            switch radix10Exponent {
+            case .none:
+                exp = ""
+            case let .some(e):
+                let sign: String = e > 0 ? "+" : ""
+                exp = "e\(sign)\(e)"
+            }
+            // I know this looks weird.
+            // We're parsing a double to then piece it back together as a String
+            // and let Swift parse it again and build a real Double?
+            // I took a pass at building a Double from those pieces, and with
+            // the radix change from the representation here in 10, to the
+            // radix 2 needed for native representation, I was losing precision.
+            // It turns out that even this method loses some precision, but a
+            // little less than with my naive method.
+            // This will do for now.
+            // - fcanas
+            return Double("\(s)\(integerpart)\(frac)\(exp)")!
+            } <^> doubleParser
+
+        }
+    }
+}
+
 public struct BasicParser {
 
     public static let digit = CharacterSet.decimalDigits.parser()
