@@ -97,6 +97,21 @@ class FFCParserCombinatorTests: XCTestCase {
 
     }
 
+    func testDouble() {
+        let d = Double.parser
+
+         XCTAssertEqual(Double.parser.run(String(Double.leastNormalMagnitude))?.0, Double.leastNormalMagnitude)
+
+        XCTAssertEqual(d.run("0")?.0, 0)
+        XCTAssertEqual(d.run("1")?.0, 1)
+        XCTAssertEqual(d.run("12")?.0, 12)
+        XCTAssertEqual(d.run("12.5")?.0, 12.5)
+        XCTAssertEqual(d.run("-12.5")?.0, -12.5)
+
+        // XCTAssertEqual(Double.parser.run(String(Double.greatestFiniteMagnitude))?.0, Double.greatestFiniteMagnitude)
+
+    }
+
     static var allTests = [
         ("testFloatingPoint",testFloatingPoint),
         ("testSignedFloatingPoint", testSignedFloatingPoint),

@@ -127,6 +127,59 @@ extension Int: ParsableType {
     }
 }
 
+extension Double: ParsableType {
+    public static var parser: Parser<Substring, Double> { get {
+
+        let m = { _ in FloatingPointSign.minus } <^> "-"
+        let p = { _ in FloatingPointSign.plus } <^> "+"
+
+        let sign = { $0 ?? FloatingPointSign.plus } <^> (p <|> m).optional
+
+        let floatingPointE = "e" <|> "E"
+
+        let decimalLiteral = UInt.parser
+
+        let decimalFraction = "." *> UInt.parser
+
+        let decimalExponent = floatingPointE *> Int.parser
+
+        let doubleParser = sign <&> decimalLiteral <<& decimalFraction.optional <<& decimalExponent.optional
+
+
+        return { (sign, integerpart, fraction, radix10Exponent) in
+            let sig10: UInt
+            let radix10Adjust: Int
+            if let fractionalPart = fraction {
+                let fractionLength = floor(log10(Double(fractionalPart))) + 1
+                radix10Adjust = Int(fractionLength)
+                sig10 = integerpart * UInt(pow(10, fractionLength)) + fractionalPart
+            } else {
+                radix10Adjust = 0
+                sig10 = integerpart
+            }
+
+            let exp2: Int
+            let sig2: Double
+
+            let exp10 = (radix10Exponent ?? 0) - radix10Adjust
+
+            if exp10 != 0 {
+                let magnitude = Double(sig10) * pow(Double(10), Double(exp10))
+                exp2 = Int((log2(magnitude)).rounded(.towardZero))
+                sig2 = magnitude / pow(Double(2), Double(exp2))
+            } else {
+                sig2 = Double(sig10)
+                exp2 = 0
+            }
+
+            return Double(sign: sign, exponent: exp2, significand: sig2)
+
+        } <^> doubleParser
+
+        }
+    }
+}
+
 public struct BasicParser {
 
     public static let digit = CharacterSet.decimalDigits.parser()
