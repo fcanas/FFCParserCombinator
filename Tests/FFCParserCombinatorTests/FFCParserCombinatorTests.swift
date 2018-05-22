@@ -97,6 +97,35 @@ class FFCParserCombinatorTests: XCTestCase {
 
     }
 
+    func testDouble() {
+        let d = Double.parser
+
+        XCTAssertEqual(Double.parser.run(String(Double.leastNormalMagnitude))!.0, Double.leastNormalMagnitude, accuracy: 1e-322)
+
+        XCTAssertEqual(d.run("0")?.0, 0)
+        XCTAssertEqual(d.run("1")?.0, 1)
+        XCTAssertEqual(d.run("12")?.0, 12)
+        XCTAssertEqual(d.run("12.5")?.0, 12.5)
+        XCTAssertEqual(d.run("-12.5")?.0, -12.5)
+
+        XCTAssertEqual(d.run("0e+0")?.0, 0)
+        XCTAssertEqual(d.run("0e+100")?.0, 0)
+        XCTAssertEqual(d.run("0e-100")?.0, 0)
+        
+        XCTAssertEqual(d.run("1e+0")?.0, 1)
+        XCTAssertEqual(d.run("1e+1")?.0, 10)
+        XCTAssertEqual(d.run("12e-1")?.0, 1.2)
+        XCTAssertEqual(d.run("12.5e+1")?.0, 125)
+        XCTAssertEqual(d.run("-12.5e-1")?.0, -1.25)
+        XCTAssertEqual(d.run("-12.5e+1")?.0, -125)
+
+        XCTAssertEqual(Double("1.7976931348623e308")!, Double.greatestFiniteMagnitude, accuracy: 1e+295)
+        // Currect reconstruction method loses too much precision to test this way
+        // XCTAssertEqual(Double.parser.run(String(Double.greatestFiniteMagnitude))!.0, Double.greatestFiniteMagnitude)
+
+        XCTAssertEqual(Double.parser.run(String(Double.leastNonzeroMagnitude))!.0, Double.leastNonzeroMagnitude)
+    }
+
     static var allTests = [
         ("testFloatingPoint",testFloatingPoint),
         ("testSignedFloatingPoint", testSignedFloatingPoint),
