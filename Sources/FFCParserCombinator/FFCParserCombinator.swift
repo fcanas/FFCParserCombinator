@@ -29,27 +29,43 @@ public extension Parser {
 
     /// Parses zero or more consecutive elements into an array
     public var many: Parser<S,[A]> {
-        return Parser<S,[A]> { stream in
-            var result: [A] = []
-            var remainder = stream
-            while let (element, newRemainder) = self.parse(remainder) {
-                remainder = newRemainder
-                result.append(element)
-            }
-            return (result, remainder)
-        }
+        return atLeast(0)
     }
 
     /// Parses one or more consecutive elements into an array
     public var many1: Parser<S,[A]> {
+        return atLeast(1)
+    }
+
+    /// Parses `min` or more elements into an array
+    ///
+    /// - Parameter min: the minimum number of elements to match
+    /// - Returns: A parser that matches the receiver at least `min` times.
+    public func atLeast(_ min: UInt) -> Parser<S,[A]> {
+        return from(min, upTo: nil)
+    }
+
+    /// Parses `min` or more, up to `max` elements into an array.
+    ///
+    /// Each bound is inclusive: `[min, max]`
+    ///
+    /// - Parameters:
+    ///   - min: the minimum number of elements to match
+    ///   - max: the maximum number of elements to match
+    /// - Returns: A parser that matches the receiver at least `min` times.
+    public func between(_ min: UInt, and max: UInt) -> Parser<S,[A]> {
+        return from(min, upTo: max)
+    }
+
+    private func from(_ min: UInt, upTo max: UInt?) -> Parser<S,[A]> {
         return Parser<S,[A]> { stream in
             var result: [A] = []
             var remainder = stream
-            while let (element, newRemainder) = self.parse(remainder) {
+            while max == nil || result.count < max!, let (element, newRemainder) = self.parse(remainder) {
                 remainder = newRemainder
                 result.append(element)
             }
-            if result.count == 0 {
+            if result.count < min {
                 return nil
             }
             return (result, remainder)
