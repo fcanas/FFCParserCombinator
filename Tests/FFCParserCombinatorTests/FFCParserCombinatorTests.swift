@@ -126,6 +126,40 @@ class FFCParserCombinatorTests: XCTestCase {
         XCTAssertEqual(Double.parser.run(String(Double.leastNonzeroMagnitude))!.0, Double.leastNonzeroMagnitude)
     }
 
+    func testMultiMatching() {
+        let dot: Parser<Substring, String> = "."
+        let fourDots = dot.atLeast(4)
+        XCTAssertEqual(fourDots.run("......")?.0, [".", ".", ".", ".", ".", "."])
+        XCTAssertEqual(fourDots.run("...")?.0, nil)
+
+        let fourToSixDots = dot.between(4, and: 6)
+        XCTAssertEqual(fourToSixDots.run("......")?.0, [".", ".", ".", ".", ".", "."])
+        XCTAssertEqual(fourToSixDots.run("..........")?.0, [".", ".", ".", ".", ".", "."])
+        XCTAssertEqual(fourToSixDots.run("....")?.0, [".", ".", ".", "."])
+        XCTAssertEqual(fourToSixDots.run("...")?.0, nil)
+        XCTAssertEqual(fourToSixDots.run(".")?.0, nil)
+        XCTAssertEqual(fourToSixDots.run("")?.0, nil)
+
+        let atLeastFourDots = dot.atLeast(4)
+        XCTAssertEqual(atLeastFourDots.run("......")?.0, [".", ".", ".", ".", ".", "."])
+        XCTAssertEqual(atLeastFourDots.run("....")?.0, [".", ".", ".", "."])
+        XCTAssertEqual(atLeastFourDots.run("...")?.0, nil)
+        XCTAssertEqual(atLeastFourDots.run(".")?.0, nil)
+        XCTAssertEqual(atLeastFourDots.run("")?.0, nil)
+
+        let manyOne = dot.many1
+        XCTAssertEqual(manyOne.run("...")?.0, [".", ".", "."])
+        XCTAssertEqual(manyOne.run("..")?.0, [".", "."])
+        XCTAssertEqual(manyOne.run(".")?.0, ["."])
+        XCTAssertEqual(manyOne.run("")?.0, nil)
+
+        let many = dot.many
+        XCTAssertEqual(many.run("...")?.0, [".", ".", "."])
+        XCTAssertEqual(many.run("..")?.0, [".", "."])
+        XCTAssertEqual(many.run(".")?.0, ["."])
+        XCTAssertEqual(many.run("")?.0, [])
+    }
+
     static var allTests = [
         ("testFloatingPoint",testFloatingPoint),
         ("testSignedFloatingPoint", testSignedFloatingPoint),
