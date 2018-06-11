@@ -207,5 +207,5 @@ public struct BasicParser {
 
     public static let floatingPointString = numericString.followed(by: decimalPoint, combine: +).followed(by: numericString, combine: +)
 
-    public static let newline = character { $0 == "\n" } <|> (character { $0 == "\n" } <* character { $0 == "\r" })
+    public static let newline = character { $0 == "\n" } <* character { $0 == "\r" } <|> (character { $0 == "\n" } )
 }
