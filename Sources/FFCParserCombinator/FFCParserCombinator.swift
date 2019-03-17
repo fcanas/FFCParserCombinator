@@ -28,12 +28,12 @@ public extension Parser {
     }
 
     /// Parses zero or more consecutive elements into an array
-    public var many: Parser<S,[A]> {
+    var many: Parser<S,[A]> {
         return atLeast(0)
     }
 
     /// Parses one or more consecutive elements into an array
-    public var many1: Parser<S,[A]> {
+    var many1: Parser<S,[A]> {
         return atLeast(1)
     }
 
@@ -41,7 +41,7 @@ public extension Parser {
     ///
     /// - Parameter min: the minimum number of elements to match
     /// - Returns: A parser that matches the receiver at least `min` times.
-    public func atLeast(_ min: UInt) -> Parser<S,[A]> {
+    func atLeast(_ min: UInt) -> Parser<S,[A]> {
         return from(min, upTo: nil)
     }
 
@@ -53,7 +53,7 @@ public extension Parser {
     ///   - min: the minimum number of elements to match
     ///   - max: the maximum number of elements to match
     /// - Returns: A parser that matches the receiver at least `min` times.
-    public func between(_ min: UInt, and max: UInt) -> Parser<S,[A]> {
+    func between(_ min: UInt, and max: UInt) -> Parser<S,[A]> {
         return from(min, upTo: max)
     }
 
