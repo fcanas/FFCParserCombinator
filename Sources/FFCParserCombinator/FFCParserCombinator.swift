@@ -12,10 +12,17 @@ public struct Parser<S,A> {
 
 public extension Parser {
 
-    func map<Result>(_ f: @escaping (A) -> Result) -> Parser<S,Result> {
+    /// Returns a Parser mapping the given closure over the receiving Parser's match.
+    ///
+    /// - Parameter transform: A mapping closure. transform accepts an match from this
+    ///                        parser as its parameter and returns a transformed value
+    ///                        of the same or of a different type.
+    /// - Returns: A parser that matches according to the receiver with transform applied to
+    ///            the matched results.
+    func map<Result>(_ transform: @escaping (A) -> Result) -> Parser<S,Result> {
         return Parser<S,Result> { stream in
             guard let (result, newStream) = self.parse(stream) else { return nil }
-            return (f(result), newStream)
+            return (transform(result), newStream)
         }
     }
 
@@ -84,10 +91,6 @@ public extension Parser {
             guard let (result2, remainder2) = other.parse(remainder) else { return nil }
             return (combine(result,result2), remainder2)
         }
-    }
-
-    func followed<B>(by other: Parser<S,B>) -> Parser<S,(A, B)> {
-        return followed(by: other, combine: { ($0, $1) })
     }
 
     func group<B, C>(into other: Parser<S,(B, C)>) -> Parser<S,(B, C, A)> {
@@ -167,12 +170,19 @@ public func <*><S, A, B>(lhs: Parser<S, (A) -> B>, rhs: Parser<S,A>) -> Parser<S
     return lhs.followed(by: rhs, combine: { $0($1) })
 }
 
+/// Combines two parsers to a single parser matching the lhs followed by
+/// the rhs, returning the values matched by each in a tuple.
+///
+/// - Parameters:
+///   - lhs: The first matching parser
+///   - rhs: The second matching parser
+/// - Returns: A parser matching the lhs, then the rhs
 public func <&><S, A, B>(lhs: Parser<S,A>, rhs: Parser<S,B>) -> Parser<S,(A,B)> {
     return lhs.followed(by: rhs, combine: { ($0, $1) })
 }
 
-/// Returns a parser matching the lhs following the rhs, only returning the
-/// value matched by the lhs parser in the case both match.
+/// Returns a parser matching the lhs followed by the rhs, only returning
+/// the value matched by the lhs parser in the case both match.
 ///
 /// - Parameters:
 ///   - lhs: The first matching parser, the result of the expression
@@ -193,6 +203,13 @@ public func *><S, A, B>(lhs: Parser<S,A>, rhs: Parser<S,B>) -> Parser<S,B> {
     return lhs.followed(by: rhs, combine: { _, x in x })
 }
 
+/// Returns a parser matching the lhs or the rhs, only returning the
+/// first value matched.
+///
+/// - Parameters:
+///   - lhs: The first matching parser
+///   - rhs: The second matching parser
+/// - Returns: A parser matching lhs or rhs, with precendence given to lhs
 public func <|><S, A>(lhs: Parser<S,A>, rhs: Parser<S,A>) -> Parser<S,A> {
     return lhs.or(rhs)
 }
