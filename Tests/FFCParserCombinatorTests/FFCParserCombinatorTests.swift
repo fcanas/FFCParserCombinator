@@ -60,5 +60,6 @@ class FFCParserCombinatorTests: XCTestCase {
     static var allTests = [
         ("testMultiMatching", testMultiMatching),
         ("testOr", testOr),
+        ("testFlatMap", testFlatMap)
     ]
 }
