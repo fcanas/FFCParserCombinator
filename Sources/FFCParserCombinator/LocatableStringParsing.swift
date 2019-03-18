@@ -1,25 +1,45 @@
 //
-//  StringParsing.swift
+//  LocatableStringParsing.swift
 //  FFCParserCombinator
 //
-//  Created by Fabian Canas on 9/3/16.
-//  Copyright © 2017 Fabian Canas. All rights reserved.
+//  Created by Fabian Canas on 3/27/19.
+//  Copyright © 2019 Fabian Canas. All rights reserved.
 //
 
 import Foundation
 
-public extension Parser where S == Substring {
-    /// Parses the full contents of the `String` parameter with a `Parser<Substring>`.
+struct FileLocation {
+    let line: Int
+    let column: Int
+}
+
+struct LocatableString {
+    let data: Substring
+    let location: FileLocation
+
+    init(data: Substring, location: FileLocation) {
+        self.data = data
+        self.location = location
+    }
+
+    init(string: String) {
+        self.data = string[string.fullRange]
+        self.location = Location(line: 0, column: 0)
+    }
+}
+
+public extension Parser where S == LocatableString {
+    /// Parses the full contents of the `String` parameter with a `Parser<LocatableString>`.
     ///
     /// This is useful because parsers of a `String` are easier to represent as
     /// parsers of a `Substring`. That is, when a `Parser` returns a result and
     /// a remainder, the remainer can be expressed as a `Substring` instead of
     /// upcasting to a new `String`.
     ///
-    /// - Parameter x: The full `String` content to be parsed.
+    /// - Parameter input: The full `String` content to be parsed.
     /// - Returns: A result, `A` and a remainder, `Substring`
-    func run(_ x: String) -> (A, Substring)? {
-        return parse(x[x.fullRange])
+    func run(_ input: String) -> (A, LocatableString)? {
+        return parse(LocatableString(string: input))
     }
 }
 
@@ -29,7 +49,8 @@ public extension Parser where S == Substring {
                   false).
  - returns: A `Parser` for a single `Character` passing the provided `condition`
 */
-public func character( condition: @escaping (Character) -> Bool) -> Parser<Substring, Character> {
+
+public func character( condition: @escaping (Character) -> Bool) -> Parser<LocatableString, Character> {
     return Parser { stream in
         guard let char: Character = stream.first, condition(char) else { return nil }
         return (char, stream.dropFirst())
@@ -41,7 +62,7 @@ extension CharacterSet {
      `CharacterSet`
      - returns: A `Parser` that will match a single `Character` in `characterSet`
      */
-    public func parser() -> Parser<Substring, Character> {
+    public func parser() -> Parser<LocatableString, Character> {
         return character(condition: { self.contains($0.unicodeScalar) } )
     }
 }
@@ -88,8 +109,8 @@ extension Parser: ExpressibleByUnicodeScalarLiteral where A == String, S == Subs
 extension String {
     /** Builds a parser for matching the receiving `String`
      */
-    fileprivate func parser() -> Parser<Substring, String> {
-        return Parser<Substring, String> { stream in
+    fileprivate func parser() -> Parser<LocatableString, String> {
+        return Parser<LocatableString, String> { stream in
             var remainder = stream
             for char in self {
                 guard let (_, newRemainder) = character(condition: { $0 == char }).parse(remainder) else {
@@ -117,13 +138,13 @@ extension Character {
 /// that type in a `Substring` stream.
 public protocol ParsableType {
 
-    static var parser: Parser<Substring, Self> { get }
+    static var parser: Parser<LocatableString, Self> { get }
 }
 
 extension UInt: ParsableType {
 
-    /// Returns a `Parser` that matches an `UInt` in a `Substring` stream.
-    public static var parser: Parser<Substring, UInt> {
+    /// Returns a `Parser` that matches an `UInt` in a `LocatableString` stream.
+    public static var parser: Parser<LocatableString, UInt> {
         return { UInt(String($0))! } <^> BasicParser.digit.many1
     }
 }
@@ -131,7 +152,7 @@ extension UInt: ParsableType {
 extension Int: ParsableType {
 
     /// Returns a `Parser` that matches an `Int` in a `Substring` stream.
-    public static var parser: Parser<Substring, Int> {
+    public static var parser: Parser<LocatableString, Int> {
         return { characters in
             Int(String(characters))!
             } <^> BasicParser.negation.optional.followed(by: BasicParser.numericString, combine: { ($0 ?? "") + $1 } )
@@ -156,7 +177,7 @@ extension Double: ParsableType {
     /// floating-point-e → e | E
     /// sign → + | -
     /// ```
-    public static var parser: Parser<Substring, Double> {
+    public static var parser: Parser<LocatableString, Double> {
 
         let m = { _ in FloatingPointSign.minus } <^> "-"
         let p = { _ in FloatingPointSign.plus } <^> "+"
