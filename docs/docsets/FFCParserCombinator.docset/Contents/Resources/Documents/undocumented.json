@@ -2,14 +2,14 @@
   "warnings": [
     {
       "file": "/Users/fcanas/workspace/FFCParserCombinator/Sources/FFCParserCombinator/FFCParserCombinator.swift",
-      "line": 251,
+      "line": 249,
       "symbol": "<^>(_:_:)",
       "symbol_kind": "source.lang.swift.decl.function.free",
       "warning": "undocumented"
     },
     {
       "file": "/Users/fcanas/workspace/FFCParserCombinator/Sources/FFCParserCombinator/FFCParserCombinator.swift",
-      "line": 255,
+      "line": 253,
       "symbol": "<*>(_:_:)",
       "symbol_kind": "source.lang.swift.decl.function.free",
       "warning": "undocumented"
