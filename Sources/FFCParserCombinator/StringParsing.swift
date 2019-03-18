@@ -31,7 +31,7 @@ public extension Parser where S == Substring {
 */
 public func character( condition: @escaping (Character) -> Bool) -> Parser<Substring, Character> {
     return Parser { stream in
-        guard let char :Character = stream.first, condition(char) else { return nil }
+        guard let char: Character = stream.first, condition(char) else { return nil }
         return (char, stream.dropFirst())
     }
 }
@@ -95,10 +95,8 @@ extension String {
         }
     }
 
-    public var fullRange :Range<Index> {
-        get {
-            return Range(uncheckedBounds: (lower: startIndex, upper: endIndex))
-        }
+    public var fullRange: Range<Index> {
+        return Range(uncheckedBounds: (lower: startIndex, upper: endIndex))
     }
 }
 
@@ -114,21 +112,21 @@ public protocol ParsableType {
 }
 
 extension UInt: ParsableType {
-    public static var parser: Parser<Substring, UInt> { get {
+    public static var parser: Parser<Substring, UInt> {
         return { UInt(String($0))! } <^> BasicParser.digit.many1
-        }
     }
 }
 
 extension Int: ParsableType {
-    public static var parser: Parser<Substring, Int> { get {
-        return { characters in Int(String(characters))! } <^> BasicParser.negation.optional.followed(by:BasicParser.numericString, combine: { ($0 ?? "") + $1 } )
-        }
+    public static var parser: Parser<Substring, Int> {
+        return { characters in
+            Int(String(characters))!
+            } <^> BasicParser.negation.optional.followed(by: BasicParser.numericString, combine: { ($0 ?? "") + $1 } )
     }
 }
 
 extension Double: ParsableType {
-    public static var parser: Parser<Substring, Double> { get {
+    public static var parser: Parser<Substring, Double> {
 
         let m = { _ in FloatingPointSign.minus } <^> "-"
         let p = { _ in FloatingPointSign.plus } <^> "+"
@@ -141,7 +139,7 @@ extension Double: ParsableType {
 
         let decimalFraction = "." *> UInt.parser
 
-        let decimalExponent = { (s,m) in Int(m) * (s == .minus ? -1 : 1) } <^> floatingPointE *> sign <&> UInt.parser
+        let decimalExponent = { (s, m) in Int(m) * (s == .minus ? -1 : 1) } <^> floatingPointE *> sign <&> UInt.parser
 
         let doubleParser = sign <&> decimalLiteral <<& decimalFraction.optional <<& decimalExponent.optional
 
@@ -180,8 +178,6 @@ extension Double: ParsableType {
             // - fcanas
             return Double("\(s)\(integerpart)\(frac)\(exp)")!
             } <^> doubleParser
-
-        }
     }
 }
 
