@@ -21,6 +21,14 @@ public extension Parser where S == Substring {
     func run(_ x: String) -> (A, Substring)? {
         return parse(x[x.fullRange])
     }
+
+    /// Parses the full contents of the `Substring` parameter with a `Parser<Substring>`.
+    ///
+    /// - Parameter x: The `Substring` content to be parsed.
+    /// - Returns: A result, `A` and a remainder, `Substring`
+    func run(_ x: Substring) -> (A, Substring)? {
+        return parse(x)
+    }
 }
 
 /** Builds a `Parser` for matching a single character
