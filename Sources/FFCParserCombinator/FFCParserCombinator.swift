@@ -182,6 +182,15 @@ public extension Parser {
     var optional: Parser<S, A?> {
         return self.map({ .some($0) }).or(Parser<S, A?>(result: nil))
     }
+    
+    /// Returns a Parser that matches the same as a receiver without consuming
+    /// from the source stream.
+    func backtrack() -> Parser<S, A> {
+        return Parser<S, A> { stream in
+            guard let (result, _) = self.parse(stream) else { return nil }
+            return (result, stream)
+        }
+    }
 }
 
 internal func curry<A, B, C>(_ f: @escaping (A, B) -> C) -> (A) -> (B) -> C {
