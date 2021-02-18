@@ -1,0 +1,19 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Parsing/MasterPlaylistParser.swift",
+      "line": 29,
+      "symbol": "parseMasterPlaylist(string:atURL:logger:)",
+      "symbol_kind": "source.lang.swift.decl.function.free",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Parsing/MediaPlaylistParser.swift",
+      "line": 48,
+      "symbol": "parseMediaPlaylist(string:atURL:logger:)",
+      "symbol_kind": "source.lang.swift.decl.function.free",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/fcanas/workspace/HLSCore"
+}

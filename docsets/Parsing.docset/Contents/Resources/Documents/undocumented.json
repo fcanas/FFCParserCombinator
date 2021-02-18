@@ -1,0 +1,145 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/.build/checkouts/FFCLog.git--3849984558325015037/Sources/FFCLog/FFCLog.swift",
+      "line": 12,
+      "symbol": "Level",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/.build/checkouts/FFCLog.git--3849984558325015037/Sources/FFCLog/FFCLog.swift",
+      "line": 18,
+      "symbol": "Level.all",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/.build/checkouts/FFCLog.git--3849984558325015037/Sources/FFCLog/FFCLog.swift",
+      "line": 19,
+      "symbol": "Level.info",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/.build/checkouts/FFCLog.git--3849984558325015037/Sources/FFCLog/FFCLog.swift",
+      "line": 20,
+      "symbol": "Level.debug",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/.build/checkouts/FFCLog.git--3849984558325015037/Sources/FFCLog/FFCLog.swift",
+      "line": 21,
+      "symbol": "Level.error",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/.build/checkouts/FFCLog.git--3849984558325015037/Sources/FFCLog/FFCLog.swift",
+      "line": 22,
+      "symbol": "Level.fatal",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/.build/checkouts/FFCLog.git--3849984558325015037/Sources/FFCLog/FFCLog.swift",
+      "line": 23,
+      "symbol": "Level.off",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/.build/checkouts/FFCLog.git--3849984558325015037/Sources/FFCLog/FFCLog.swift",
+      "line": 46,
+      "symbol": "Logger",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/.build/checkouts/FFCLog.git--3849984558325015037/Sources/FFCLog/FFCLog.swift",
+      "line": 47,
+      "symbol": "Logger.log(_:level:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/.build/checkouts/FFCLog.git--3849984558325015037/Sources/FFCLog/FFCLog.swift",
+      "line": 50,
+      "symbol": "LogOutputStream",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/.build/checkouts/FFCLog.git--3849984558325015037/Sources/FFCLog/FFCLog.swift",
+      "line": 51,
+      "symbol": "LogOutputStream.write(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/.build/checkouts/FFCLog.git--3849984558325015037/Sources/FFCLog/FFCLog.swift",
+      "line": 54,
+      "symbol": "StandardOutput",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/.build/checkouts/FFCLog.git--3849984558325015037/Sources/FFCLog/FFCLog.swift",
+      "line": 55,
+      "symbol": "StandardOutput.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/.build/checkouts/FFCLog.git--3849984558325015037/Sources/FFCLog/FFCLog.swift",
+      "line": 56,
+      "symbol": "StandardOutput.write(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/.build/checkouts/FFCLog.git--3849984558325015037/Sources/FFCLog/FFCLog.swift",
+      "line": 61,
+      "symbol": "StandardError",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/.build/checkouts/FFCLog.git--3849984558325015037/Sources/FFCLog/FFCLog.swift",
+      "line": 62,
+      "symbol": "StandardError.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/.build/checkouts/FFCLog.git--3849984558325015037/Sources/FFCLog/FFCLog.swift",
+      "line": 63,
+      "symbol": "StandardError.write(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/.build/checkouts/FFCLog.git--3849984558325015037/Sources/FFCLog/FFCLog.swift",
+      "line": 68,
+      "symbol": "FFCLog",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/.build/checkouts/FFCLog.git--3849984558325015037/Sources/FFCLog/FFCLog.swift",
+      "line": 74,
+      "symbol": "FFCLog.init(thresholdLevel:errorOut:infoOut:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/.build/checkouts/FFCLog.git--3849984558325015037/Sources/FFCLog/FFCLog.swift",
+      "line": 80,
+      "symbol": "FFCLog.log(_:level:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/fcanas/workspace/HLSCore"
+}

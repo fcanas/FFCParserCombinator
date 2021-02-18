@@ -1,0 +1,684 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/AttributeTypes.swift",
+      "line": 11,
+      "symbol": "Resolution",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/AttributeTypes.swift",
+      "line": 12,
+      "symbol": "Resolution.width",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/AttributeTypes.swift",
+      "line": 13,
+      "symbol": "Resolution.height",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/AttributeTypes.swift",
+      "line": 14,
+      "symbol": "Resolution.init(width:height:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/AttributeTypes.swift",
+      "line": 24,
+      "symbol": "HexadecimalSequence",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/AttributeTypes.swift",
+      "line": 25,
+      "symbol": "HexadecimalSequence.value",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/AttributeTypes.swift",
+      "line": 36,
+      "symbol": "HexadecimalSequence.init(value:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/AttributeTypes.swift",
+      "line": 45,
+      "symbol": "SignedFloat",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/AttributeTypes.swift",
+      "line": 51,
+      "symbol": "SignedFloat.init(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/EncryptionKey.swift",
+      "line": 11,
+      "symbol": "EncryptionMethod",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/EncryptionKey.swift",
+      "line": 12,
+      "symbol": "EncryptionMethod.None",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/EncryptionKey.swift",
+      "line": 13,
+      "symbol": "EncryptionMethod.AES128(_:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/EncryptionKey.swift",
+      "line": 14,
+      "symbol": "EncryptionMethod.SampleAES(_:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/EncryptionKey.swift",
+      "line": 17,
+      "symbol": "IdentityDecryptionKeyFormat",
+      "symbol_kind": "source.lang.swift.decl.var.global",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/EncryptionKey.swift",
+      "line": 19,
+      "symbol": "InitializationVector",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/EncryptionKey.swift",
+      "line": 20,
+      "symbol": "InitializationVector.low",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/EncryptionKey.swift",
+      "line": 21,
+      "symbol": "InitializationVector.high",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/EncryptionKey.swift",
+      "line": 22,
+      "symbol": "InitializationVector.init(low:high:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/EncryptionKey.swift",
+      "line": 28,
+      "symbol": "DecryptionKey",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/EncryptionKey.swift",
+      "line": 30,
+      "symbol": "DecryptionKey.method",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/EncryptionKey.swift",
+      "line": 31,
+      "symbol": "DecryptionKey.initializationVector",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/EncryptionKey.swift",
+      "line": 32,
+      "symbol": "DecryptionKey.keyFormat",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/EncryptionKey.swift",
+      "line": 33,
+      "symbol": "DecryptionKey.keyFormatVersions",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/EncryptionKey.swift",
+      "line": 35,
+      "symbol": "DecryptionKey.init(method:initializationVector:keyFormat:keyFormatVersions:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/EncryptionKey.swift",
+      "line": 53,
+      "symbol": "DecryptionKey.None",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/EncryptionKey.swift",
+      "line": 57,
+      "symbol": "setDecryptionKey(_:forSegments:)",
+      "symbol_kind": "source.lang.swift.decl.function.free",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/HLSCore.swift",
+      "line": 15,
+      "symbol": "StartIndicator.init(at:preciseStart:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/HLSCore.swift",
+      "line": 21,
+      "symbol": "MediaType",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/HLSCore.swift",
+      "line": 22,
+      "symbol": "MediaType.Audio",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/HLSCore.swift",
+      "line": 23,
+      "symbol": "MediaType.Video",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/HLSCore.swift",
+      "line": 24,
+      "symbol": "MediaType.Subtitles",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/HLSCore.swift",
+      "line": 25,
+      "symbol": "MediaType.ClosedCaptions",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/HLSCore.swift",
+      "line": 30,
+      "symbol": "Rendition.type",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/HLSCore.swift",
+      "line": 31,
+      "symbol": "Rendition.uri",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/HLSCore.swift",
+      "line": 32,
+      "symbol": "Rendition.groupID",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/HLSCore.swift",
+      "line": 33,
+      "symbol": "Rendition.language",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/HLSCore.swift",
+      "line": 34,
+      "symbol": "Rendition.associatedLanguage",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/HLSCore.swift",
+      "line": 35,
+      "symbol": "Rendition.name",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/HLSCore.swift",
+      "line": 36,
+      "symbol": "Rendition.defaultRendition",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/HLSCore.swift",
+      "line": 37,
+      "symbol": "Rendition.forced",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/HLSCore.swift",
+      "line": 39,
+      "symbol": "Rendition.init(mediaType:uri:groupID:language:associatedLanguage:name:defaultRendition:forced:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/HLSCore.swift",
+      "line": 58,
+      "symbol": "RenditionGroup",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/HLSCore.swift",
+      "line": 64,
+      "symbol": "RenditionGroup.init(groupId:type:renditions:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/HLSCore.swift",
+      "line": 73,
+      "symbol": "RenditionGroup.defaultRendition",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/HLSCore.swift",
+      "line": 75,
+      "symbol": "RenditionGroup.forcedRenditions",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/HLSCore.swift",
+      "line": 80,
+      "symbol": "Bitrate.value",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/HLSCore.swift",
+      "line": 86,
+      "symbol": "Bitrate.toUIntMax()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/HLSCore.swift",
+      "line": 90,
+      "symbol": "Bitrate.init(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/HLSCore.swift",
+      "line": 122,
+      "symbol": "StreamInfo.averageBandwidth",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/HLSCore.swift",
+      "line": 123,
+      "symbol": "StreamInfo.codecs",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/HLSCore.swift",
+      "line": 124,
+      "symbol": "StreamInfo.resolution",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/HLSCore.swift",
+      "line": 125,
+      "symbol": "StreamInfo.frameRate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/HLSCore.swift",
+      "line": 127,
+      "symbol": "StreamInfo.uri",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/HLSCore.swift",
+      "line": 129,
+      "symbol": "StreamInfo.init(bandwidth:averageBandwidth:codecs:resolution:frameRate:uri:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/HLSCore.swift",
+      "line": 148,
+      "symbol": "MediaSegment.resource",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/HLSCore.swift",
+      "line": 150,
+      "symbol": "MediaSegment.init(uri:duration:title:byteRange:decryptionKey:date:mediaInitializationSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/HLSCore.swift",
+      "line": 168,
+      "symbol": "MediaSegment.duration",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/HLSCore.swift",
+      "line": 173,
+      "symbol": "MediaSegment.byteRange",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/HLSCore.swift",
+      "line": 175,
+      "symbol": "MediaSegment.decryptionKey",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/HLSCore.swift",
+      "line": 177,
+      "symbol": "MediaSegment.programDateTime",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/HLSCore.swift",
+      "line": 179,
+      "symbol": "MediaSegment.mediaInitializationSection",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/HLSCore.swift",
+      "line": 185,
+      "symbol": "MediaInitializationSection",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/HLSCore.swift",
+      "line": 186,
+      "symbol": "MediaInitializationSection.uri",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/HLSCore.swift",
+      "line": 187,
+      "symbol": "MediaInitializationSection.byteRange",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/HLSCore.swift",
+      "line": 189,
+      "symbol": "MediaInitializationSection.init(uri:byteRange:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/HLSCore.swift",
+      "line": 197,
+      "symbol": "MediaResource",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/HLSCore.swift",
+      "line": 198,
+      "symbol": "MediaResource.uri",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/Language.swift",
+      "line": null,
+      "symbol": "Language",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/Language.swift",
+      "line": 9,
+      "symbol": "Language",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/Language.swift",
+      "line": 13,
+      "symbol": "Language.init(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/Language.swift",
+      "line": 19,
+      "symbol": "Language.de",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/Language.swift",
+      "line": 20,
+      "symbol": "Language.en",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/Language.swift",
+      "line": 21,
+      "symbol": "Language.es",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/Language.swift",
+      "line": 22,
+      "symbol": "Language.fr",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/Language.swift",
+      "line": 23,
+      "symbol": "Language.ja",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/Language.swift",
+      "line": 24,
+      "symbol": "Language.zh",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/Playlist.swift",
+      "line": 11,
+      "symbol": "Playlist",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/Playlist.swift",
+      "line": 12,
+      "symbol": "Playlist.version",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/Playlist.swift",
+      "line": 13,
+      "symbol": "Playlist.start",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/Playlist.swift",
+      "line": 19,
+      "symbol": "MasterPlaylist.version",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/Playlist.swift",
+      "line": 20,
+      "symbol": "MasterPlaylist.uri",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/Playlist.swift",
+      "line": 22,
+      "symbol": "MasterPlaylist.renditions",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/Playlist.swift",
+      "line": 23,
+      "symbol": "MasterPlaylist.streams",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/Playlist.swift",
+      "line": 24,
+      "symbol": "MasterPlaylist.start",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/Playlist.swift",
+      "line": 26,
+      "symbol": "MasterPlaylist.init(version:uri:streams:renditions:start:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/Playlist.swift",
+      "line": 39,
+      "symbol": "MediaPlaylist.PlaylistType",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/Playlist.swift",
+      "line": 40,
+      "symbol": "MediaPlaylist.PlaylistType.VOD",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/Playlist.swift",
+      "line": 41,
+      "symbol": "MediaPlaylist.PlaylistType.Event",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/Playlist.swift",
+      "line": 44,
+      "symbol": "MediaPlaylist.init(type:version:uri:targetDuration:closed:start:segments:independentSegments:mediaSequence:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/Playlist.swift",
+      "line": 71,
+      "symbol": "MediaPlaylist.type",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/Playlist.swift",
+      "line": 73,
+      "symbol": "MediaPlaylist.version",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/Playlist.swift",
+      "line": 76,
+      "symbol": "MediaPlaylist.uri",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/Playlist.swift",
+      "line": 78,
+      "symbol": "MediaPlaylist.targetDuration",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/Playlist.swift",
+      "line": 83,
+      "symbol": "MediaPlaylist.start",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/Playlist.swift",
+      "line": 86,
+      "symbol": "MediaPlaylist.segments",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/Playlist.swift",
+      "line": 88,
+      "symbol": "MediaPlaylist.independentSegments",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fcanas/workspace/HLSCore/Sources/Types/URL.swift",
+      "line": 68,
+      "symbol": "URL.directoryURL()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/fcanas/workspace/HLSCore"
+}
